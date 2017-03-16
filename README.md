@@ -5,7 +5,9 @@
 
 ### Descripción 
 
-	Realización de un proyecto que analice los algoritmos de ordenación por selección y el Heapsort, así como la comparación entre ambos. Se desarrollará el código fuente de dichos algoritmos, para luego crear tablas y gráficas de pruebas realizadas con distintos valores.
+	Realización de un proyecto que analice los algoritmos de ordenación por selección y el Heapsort, así como
+	la comparación entre ambos. Se desarrollará el código fuente de dichos algoritmos, para luego crear tablas
+	y gráficas de pruebas realizadas con distintos valores.
 
 	Los documentos necesarios son:
 
