@@ -13,10 +13,10 @@ int main(int argc, char const *argv[]) {
 
     std::cout << "\nSelection Sort: " << '\n';
     meter.measure(
-        10000, // Starting size
-        30000, // Ending size
-        8,     // Number of test for each n
-        2000,  // n Increment
+        20000,  // Starting size
+        200000, // Ending size
+        4,      // Number of test for each n
+        20000,  // n Increment
         [&selection](int n) {
             vector<int> random = randomIntVector(n);
             selection.sort(random);
@@ -25,9 +25,9 @@ int main(int argc, char const *argv[]) {
 
     std::cout << "\nHeap Sort: " << '\n';
     meter.measure(
-        1000000, // Starting size
-        3000000, // Ending size
-        8,        // Number of test for each n
+        200000, // Starting size
+        10000000, // Ending size
+        3,        // Number of test for each n
         200000,  // n Increment
         [&heap](int n) {
             vector<int> random = randomIntVector(n);

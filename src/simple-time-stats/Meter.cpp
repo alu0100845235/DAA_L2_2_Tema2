@@ -7,12 +7,14 @@ void Meter::measure(int start, int end, int tests, int increments, std::function
     std::vector<double> testsTime;
     std::clock_t beginTime;
     std::clock_t endTime;
+    int maxSteps = std::abs((end - start) / increments) * tests;
+    int step = 0;
 
     points.clear();
     for (int n = start; n < end; n += increments) {
         testsTime.clear();
-        std::cout <<  "\r" << progressBar(start, end, n) << std::flush;
-        for (int test = 0; test < tests; ++test) {
+        for (int test = 0; test < tests; ++test, ++step) {
+            std::cout <<  "\r" << progressBar(0, maxSteps, step) << std::flush;
             beginTime = std::clock();
             function(n);
             endTime = std::clock();
@@ -20,20 +22,24 @@ void Meter::measure(int start, int end, int tests, int increments, std::function
         }
         points.push_back(generateDataPoint(testsTime, n));
     }
+    std::cout <<  "\r" << progressBar(0, 1, 1) << std::flush;
 }
 
 std::string Meter::progressBar(double min, double max, double current, int size) const {
     double progress = (current - min) / (max - min);
     int maxChars = progress*size;
 
-    std::string bar = "|";
+    std::stringstream  bar;
+    bar.precision(2);
+    bar << "|";
     for (int i = 0; i < maxChars; ++i) {
-        bar += "=";
+        bar << "=";
     }
     for (int i = maxChars; i < size; ++i) {
-        bar += " ";
+        bar << " ";
     }
-    return bar + "|";
+    bar << "| " << std::fixed << (progress * 100) << " %  ";
+    return bar.str();
 }
 
 void Meter::setPointMean(const std::vector<double>& values, DataPoint& point) {
@@ -70,7 +76,7 @@ DataPoint Meter::generateDataPoint(std::vector<double>& values, int n) {
 }
 
 std::ostream& Meter::print(std::ostream &os) const {
-    os << "Mean\tMedian\tStdDev\n";
+    os << "Size\tMean\tMedian\tStdDev\n";
     for (DataPoint point : points) {
         os << point.getN() << "\t";
         os << point.getMean() << "\t";
