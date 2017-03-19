@@ -12,8 +12,8 @@ class selectionSort {
 		selectionSort();
 		virtual ~selectionSort();
 		void swap(T& a, T& b);
-		int sort(std::vector<T>& values, bool debug = false);
-		ostream& debugValues(ostream& os, const std::vector<T>& values, int j, int k);
+		int sort(vector<T>& values, bool debug = false);
+		ostream& debugValues(ostream& os, const vector<T>& values, int j, int k);
 };
 
 template<class T>
@@ -30,7 +30,7 @@ void selectionSort<T>::swap(T& a, T& b) {
 }
 
 template <class T>
-int selectionSort<T>::sort(std::vector<T>& values, bool debug) {
+int selectionSort<T>::sort(vector<T>& values, bool debug) {
 	int size = values.size();
 	int steps = 0;
 	int i, j;
@@ -49,7 +49,7 @@ int selectionSort<T>::sort(std::vector<T>& values, bool debug) {
 }
 
 template <class T>
-ostream& selectionSort<T>::debugValues(ostream& os, const std::vector<T>& values, int j, int k) {
+ostream& selectionSort<T>::debugValues(ostream& os, const vector<T>& values, int j, int k) {
 	int size = values.size();
 
 	for (int i = 0; i < size; i++) {
