@@ -57,10 +57,10 @@ Además se han creado dos ejemplos que pueden ser compilados utilizando los coma
 *timeTest* genera una serie de vectores aleatorios de enteros que después son ordenados por los algoritmos desde
 un tamaño inicial hasta uno final predefinidos junto a un número de ejecuciones para cada n:
 
-|Algoritmo|N inicial|N final|Incremento de N|Número de ejecuciones para cada N|
-|---|---|---|---|---|
-|Selection Sort|1E+4|3E+4|2E+3|8|
-|Heap Sort|1E+6|3E+6|2E+5|8|
+|Algoritmo|N inicial|N final|Incremento de N|Número de ejecuciones para cada N|Número total de ordenaciones|
+|---|---|---|---|---|---|
+|Selection Sort|2E+4|2E+5|2E+4|4|36|
+|Heap Sort|2E+5|1E+8|2E+5|3|147|
 
 Después, para cada conjunto de ejecuciones de un tamaño se generarán una serie de datos que serán guardados en *selectionSortTime.txt* y *heapSortTime.txt* en el siguiente orden:
 
