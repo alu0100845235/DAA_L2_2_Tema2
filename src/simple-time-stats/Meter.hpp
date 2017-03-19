@@ -20,11 +20,12 @@ class Meter {
         Meter();
         virtual ~Meter();
         void measure(int start, int end, int tests, int increments, std::function<void(int)> function);
+        void printInfo(int maxSteps, int step, int n, int end, int test, int tests) const;
         std::ostream& print(std::ostream &os = std::cout) const;
         void printToFile(std::string name, char separator = ',') const;
 
     private:
-        std::string progressBar(double min, double max, double current, int size = 80) const;
+        std::string progressBar(double min, double max, double current, int size = 30) const;
         void setPointMean(const std::vector<double>& values, DataPoint& point);
         void setPointStdDev(const std::vector<double>& values, DataPoint& point);
         void setPointMedian(std::vector<double>& values, DataPoint& point);

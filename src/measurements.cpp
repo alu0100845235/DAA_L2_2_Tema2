@@ -13,10 +13,10 @@ int main(int argc, char const *argv[]) {
 
     std::cout << "\nSelection Sort: " << '\n';
     meter.measure(
-        20000,  // Starting size
-        200000, // Ending size
-        4,      // Number of test for each n
-        20000,  // n Increment
+        5000,   // Starting size
+        100000, // Ending size
+        3,      // Number of test for each n
+        5000,   // n Increment
         [&selection](int n) {
             vector<int> random = randomIntVector(n);
             selection.sort(random);

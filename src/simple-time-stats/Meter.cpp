@@ -9,12 +9,13 @@ void Meter::measure(int start, int end, int tests, int increments, std::function
     std::clock_t endTime;
     int maxSteps = std::abs((end - start) / increments) * tests;
     int step = 0;
+    double lastMeanTime = 0;
 
     points.clear();
     for (int n = start; n < end; n += increments) {
         testsTime.clear();
         for (int test = 0; test < tests; ++test, ++step) {
-            std::cout <<  "\r" << progressBar(0, maxSteps, step) << std::flush;
+            printInfo(maxSteps, step, n, end, test, tests);
             beginTime = std::clock();
             function(n);
             endTime = std::clock();
@@ -22,7 +23,15 @@ void Meter::measure(int start, int end, int tests, int increments, std::function
         }
         points.push_back(generateDataPoint(testsTime, n));
     }
-    std::cout <<  "\r" << progressBar(0, 1, 1) << std::flush;
+    printInfo(maxSteps, step, end, end, tests, tests);
+}
+
+void Meter::printInfo(int maxSteps, int step, int n, int end, int test, int tests) const {
+    std::cout <<  "\r" << progressBar(0, maxSteps, step);
+    std::cout << ", Test: " << test << "/" << tests;
+    std::cout << ", Size: " << n << "/" << end;
+    std::cout << ", Steps left: " << (maxSteps - step);
+    std::cout << ", Last mean time: " << (points.empty() ? 0 : points.back().getMean()) << "s     " << std::flush;
 }
 
 std::string Meter::progressBar(double min, double max, double current, int size) const {
@@ -38,7 +47,7 @@ std::string Meter::progressBar(double min, double max, double current, int size)
     for (int i = maxChars; i < size; ++i) {
         bar << " ";
     }
-    bar << "| " << std::fixed << (progress * 100) << " %  ";
+    bar << "| " << std::fixed << (progress * 100) << " %";
     return bar.str();
 }
 
