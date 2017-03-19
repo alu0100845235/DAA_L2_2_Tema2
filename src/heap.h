@@ -1,7 +1,6 @@
 #ifndef HEAP
 #define HEAP
 
-
 #include <iostream>
 #include "Ordenacion/ordenacion.h"
 

@@ -1,72 +1,65 @@
-#ifndef SELECTIONSORT
-#define SELECTIONSORT
+#ifndef SELECTION_SORT_HPP
+#define SELECTION_SORT_HPP
 
 #include <iostream>
-#include "Ordenacion/ordenacion.h"
+#include <vector>
 
 using namespace std;
 
 template <class T>
-class selectionSort{
-	private:
-		int contador_;
+class selectionSort {
 	public:
 		selectionSort();
-		~selectionSort();
-
-		int get_contador();
-		void algoritmo(T* secuencia, int tam, int metodo);
-
-		ostream& write(ostream& os, T* secuencia, int tam, int j, int k);
+		virtual ~selectionSort();
+		void swap(T& a, T& b);
+		int sort(std::vector<T>& values, bool debug = false);
+		ostream& debugValues(ostream& os, const std::vector<T>& values, int j, int k);
 };
 
-template <class T>
-selectionSort<T>::selectionSort():
-	contador_(0)
-{}
+template<class T>
+selectionSort<T>::selectionSort() {}
 
 template <class T>
-selectionSort<T>::~selectionSort(){
-	contador_ = 0;
+selectionSort<T>::~selectionSort() {}
+
+template <class T>
+void selectionSort<T>::swap(T& a, T& b) {
+	T aux(a);
+	a = b;
+	b = aux;
 }
 
 template <class T>
-int selectionSort<T>::get_contador(){
-	return contador_;
-}
+int selectionSort<T>::sort(std::vector<T>& values, bool debug) {
+	int size = values.size();
+	int steps = 0;
+	int i, j;
 
-template <class T>
-void selectionSort<T>::algoritmo(T* secuencia, int tam, int metodo){
-	contador_ = 0;
-	for (int i = 0; i < tam-1; i++){
-		for (int j = i+1; j < tam; j++){
-			if (metodo == 1){
-				write(cout, secuencia, tam, i, j);
-				cin.ignore();
-			}
-			else
-				contador_++;
-
-			if ((secuencia[i] > secuencia[j])){
-				T aux(secuencia[i]);
-				secuencia[i] = secuencia[j];
-				secuencia[j] = aux;
-			}
+	for (i = 0; i < (size - 1); ++i) {
+		for (j = (i + 1); j < size; ++j, ++steps) {
+			if (debug)
+				debugValues(cout, values, i, j);
+			if (values[i] > values[j])
+				swap(values[i], values[j]);
 		}
 	}
-
-	if (metodo == 1)
-		write(cout, secuencia, tam, -1, -1);
+	if (debug)
+		debugValues(cout, values, i, j);
+	return steps;
 }
 
 template <class T>
-ostream& selectionSort<T>::write(ostream& os, T* secuencia, int tam, int j, int k){
-	for (int i = 0; i < tam; i++)
+ostream& selectionSort<T>::debugValues(ostream& os, const std::vector<T>& values, int j, int k) {
+	int size = values.size();
+
+	for (int i = 0; i < size; i++) {
 		if ((i != j) && (i != k))
-			os << secuencia[i] << " ";
+			os << values[i] << " ";
 		else
-			cout << "[" << secuencia[i] << "] ";
+			cout << "[" << values[i] << "] ";
+	}
 	os << endl;
+	cin.ignore();
 	return os;
 }
 
