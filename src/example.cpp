@@ -13,7 +13,7 @@ void selectionSortExample(bool debug);
 void heapSortExample(bool debug);
 ostream& operator<<(ostream &os, const vector<int>& values);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* const argv[]) {
     bool debug = (argc > 1) && (strcmp(argv[1], "debug") == 0);
     selectionSortExample(debug);
     heapSortExample(debug);
