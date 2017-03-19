@@ -57,7 +57,7 @@ Además se han creado dos ejemplos que pueden ser compilados utilizando los coma
 *timeTest* genera una serie de vectores aleatorios de enteros que después son ordenados por los algoritmos desde
 un tamaño inicial hasta uno final predefinidos junto a un número de ejecuciones para cada n:
 
-|Algoritmo|N inicial|N final|Incremento de N|Número de ejecuciones para cada N|Número total de ordenaciones|
+|Algoritmo|N inicial|N final|Incremento de N|Ejecuciones para cada N|Ejecuciones totales|
 |---|---|---|---|---|---|
 |Selection Sort|5E+3|1E+5|5E+3|3|57|
 |Heap Sort|2E+5|1E+7|2E+5|3|147|
