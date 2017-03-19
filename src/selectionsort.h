@@ -11,9 +11,10 @@ class selectionSort {
 	public:
 		selectionSort();
 		virtual ~selectionSort();
-		void swap(T& a, T& b);
 		int sort(vector<T>& values, bool debug = false);
-		ostream& debugValues(ostream& os, const vector<T>& values, int j, int k);
+		void swap(T& a, T& b);
+		int selectMin(const vector<T>& values, int start, int end, bool debug);
+		ostream& debugValues(const vector<T>& values, int start, int current, int min, ostream& os = cout);
 };
 
 template<class T>
@@ -33,32 +34,37 @@ template <class T>
 int selectionSort<T>::sort(vector<T>& values, bool debug) {
 	int size = values.size();
 	int steps = 0;
-	int i, j;
 
-	for (i = 0; i < (size - 1); ++i) {
-		for (j = (i + 1); j < size; ++j, ++steps) {
-			if (debug)
-				debugValues(cout, values, i, j);
-			if (values[i] > values[j])
-				swap(values[i], values[j]);
-		}
+	for (int i = 0; i < size; ++i) {
+		int min = selectMin(values, i, size, debug);
+		swap(values[min], values[i]);
 	}
-	if (debug)
-		debugValues(cout, values, i, j);
 	return steps;
 }
 
 template <class T>
-ostream& selectionSort<T>::debugValues(ostream& os, const vector<T>& values, int j, int k) {
+int selectionSort<T>::selectMin(const vector<T>& values, int start, int end, bool debug) {
+	int min = start;
+	for (int i = start; i < end; ++i) {
+		if (values[i] < values[min])
+			min = i;
+		if (debug)
+			debugValues(values, start, i, min);
+	}
+	return min;
+}
+
+template <class T>
+ostream& selectionSort<T>::debugValues(const vector<T>& values, int start, int current, int min, ostream& os) {
 	int size = values.size();
 
 	for (int i = 0; i < size; i++) {
-		if ((i != j) && (i != k))
-			os << values[i] << " ";
+		if ((i == start) || (i == current))
+			os << "[" << values[i] << "] ";
 		else
-			cout << "[" << values[i] << "] ";
+			os << " " << values[i] << "  ";
 	}
-	os << endl;
+	os << " min: [" << values[min] << "]" << endl;
 	cin.ignore();
 	return os;
 }
