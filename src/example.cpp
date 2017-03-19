@@ -1,5 +1,7 @@
 #include "selectionsort.h"
+#include "heapsort.h"
 #include <algorithm>
+#include <cstring>
 
 const int kTestSize = 10;
 
@@ -7,21 +9,34 @@ using namespace std;
 
 vector<int> randomIntVector(int size);
 void printVector(vector<int>& values);
-void selectionSortExample();
+void selectionSortExample(bool debug);
+void heapSortExample(bool debug);
 ostream& operator<<(ostream &os, const vector<int>& values);
 
 int main(int argc, char* argv[]) {
-    selectionSortExample();
+    bool debug = (argc > 1) && (strcmp(argv[1], "debug") == 0);
+    selectionSortExample(debug);
+    heapSortExample(debug);
     return 0;
 }
 
-void selectionSortExample() {
+void selectionSortExample(bool debug) {
     vector<int> random = randomIntVector(kTestSize);
     selectionSort<int> selection;
 
     cout << "Selection Sort:\n";
     cout << "Input vector is:  " << random << "\n";
-    selection.sort(random);
+    selection.sort(random, debug);
+    cout << "Output vector is: " << random << "\n";
+}
+
+void heapSortExample(bool debug) {
+    vector<int> random = randomIntVector(kTestSize);
+    heapSort<int> heap;
+
+    cout << "Heap Sort:\n";
+    cout << "Input vector is:  " << random << "\n";
+    heap.sort(random, debug);
     cout << "Output vector is: " << random << "\n";
 }
 
