@@ -60,7 +60,7 @@ un tamaño inicial hasta uno final predefinidos junto a un número de ejecucione
 |Algoritmo|N inicial|N final|Incremento de N|Número de ejecuciones para cada N|
 |---|---|---|---|---|
 |Selection Sort|1E+4|3E+4|2E+3|8|
-|Heap Sort|1e6|3E+6|2E+5|8|
+|Heap Sort|1E+6|3E+6|2E+5|8|
 
 Después, para cada conjunto de ejecuciones de un tamaño se generarán una serie de datos que serán guardados en *selectionSortTime.txt* y *heapSortTime.txt* en el siguiente orden:
 
