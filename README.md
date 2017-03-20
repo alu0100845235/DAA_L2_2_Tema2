@@ -22,6 +22,12 @@
 </tr>
 </table>
 
+### Enlaces:
+
+- [Repositorio Github](https://github.com/alu0100845235/DAA_L2_2_Tema2.git)
+- [Google Docs](https://docs.google.com/document/d/1Y2tyjjjsmp1BRPiZehXe_XGTeq2iC35srsqF5JIwvno/edit?usp=sharing)
+- [Google Slides](https://docs.google.com/presentation/d/1MPEAdQ1fCc6ohNgTGjKigvKnUL2EnIiYi4vwrqBUhqA/edit?usp=sharing)
+
 ### Descripción
 
 Realización de un proyecto que analice los algoritmos de ordenación por selección y el Heapsort, así como
@@ -34,14 +40,11 @@ Los documentos necesarios son:
  - Presentación ajustada a un máximo de 10 minutos.
  - Código fuente de los algoritmos desarrollados.
 
+### Datos
 
-### Repositorio del proyecto:
-
- - [github](https://github.com/alu0100845235/DAA_L2_2_Tema2.git)
-
-### Informe del proyecto:
-
- - [Google Docs](https://docs.google.com/document/d/1Y2tyjjjsmp1BRPiZehXe_XGTeq2iC35srsqF5JIwvno/edit?usp=sharing)
+Se encuentran disponibles en la carpeta datos información recogida de los distintos algoritmos
+generadas por el programa `measurements.cpp` (Ver *Códigos de Ejemplo* más abajo) junto a dos
+gráficos con los datos representados (media y desviación típica) junto a sus rectas de regresión.
 
 ### Códigos de ejemplo
 
