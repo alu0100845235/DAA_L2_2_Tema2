@@ -2,26 +2,6 @@
 #### ETSII ULL Grado de Informatica
 #### Asignatura: [Diseño y Análisis de Algoritmos (Univerdidad de La Laguna)](https://campusvirtual.ull.es/1617/course/view.php?id=1138)
 
-
-### Descripción
-
-	Realización de un proyecto que analice los algoritmos de ordenación por selección y el Heapsort, así como
-	la comparación entre ambos. Se desarrollará el código fuente de dichos algoritmos, para luego crear tablas
-	y gráficas de pruebas realizadas con distintos valores.
-
-	Los documentos necesarios son:
-
-		- Informe con una extensión máxima de ocho páginas.
-		- Presentación ajustada a un máximo de 10 minutos.
-		- Código fuente de los algoritmos desarrollados.
-
-
-### Repositorio del proyecto:
-
-- [github](https://github.com/alu0100845235/DAA_L2_2_Tema2.git)
-
-
-
 ### Autores (Grupo L2_2)
 
 <table>
@@ -41,6 +21,27 @@
 <td> <a href="https://alu0100845235.github.io/">Página personal</a></td>
 </tr>
 </table>
+
+### Descripción
+
+Realización de un proyecto que analice los algoritmos de ordenación por selección y el Heapsort, así como
+la comparación entre ambos. Se desarrollará el código fuente de dichos algoritmos, para luego crear tablas
+y gráficas de pruebas realizadas con distintos valores.
+
+Los documentos necesarios son:
+
+ - Informe con una extensión máxima de ocho páginas.
+ - Presentación ajustada a un máximo de 10 minutos.
+ - Código fuente de los algoritmos desarrollados.
+
+
+### Repositorio del proyecto:
+
+ - [github](https://github.com/alu0100845235/DAA_L2_2_Tema2.git)
+
+### Informe del proyecto:
+
+ - [Google Docs](https://docs.google.com/document/d/1Y2tyjjjsmp1BRPiZehXe_XGTeq2iC35srsqF5JIwvno/edit?usp=sharing)
 
 ### Códigos de ejemplo
 

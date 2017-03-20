@@ -21,19 +21,19 @@ int main(int argc, char const *argv[]) {
             vector<int> random = randomIntVector(n);
             selection.sort(random);
     });
-    meter.printToFile("selectionSortTime.txt");
+    meter.printToFile("../data/selectionSortTime.txt");
 
     std::cout << "\nHeap Sort: " << '\n';
     meter.measure(
-        200000, // Starting size
+        200000,   // Starting size
         10000000, // Ending size
         3,        // Number of test for each n
-        200000,  // n Increment
+        200000,   // n Increment
         [&heap](int n) {
             vector<int> random = randomIntVector(n);
             heap.sort(random);
     });
-    meter.printToFile("heapSortTime.txt");
+    meter.printToFile("../data/heapSortTime.txt");
 
     return 0;
 }
