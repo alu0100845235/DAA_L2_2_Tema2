@@ -44,7 +44,8 @@ Los documentos necesarios son:
 
 Se encuentran disponibles en la carpeta datos información recogida de los distintos algoritmos
 generadas por el programa `measurements.cpp` (Ver *Códigos de Ejemplo* más abajo) junto a dos
-gráficos con los datos representados (media y desviación típica) junto a sus rectas de regresión.
+gráficos con los datos representados (media y desviación típica) junto a sus rectas de regresión
+(En naranja punteado).
 
 ### Códigos de ejemplo
 
