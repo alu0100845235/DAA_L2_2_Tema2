@@ -1,0 +1,11 @@
+# Selection Sort
+starting_size=5000
+ending_size=100000
+number_of_test=3
+n_increment=5000
+
+# Heapsort
+starting_size=200000
+ending_size=10000000
+number_of_test=3
+n_increment=200000

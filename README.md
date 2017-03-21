@@ -60,7 +60,8 @@ Además se han creado dos ejemplos que pueden ser compilados utilizando los coma
  - `make example`: Crea el ejecutable *example* que muestra un ejemplo de funcionamiento de los algoritmos.
 
 *timeTest* genera una serie de vectores aleatorios de enteros que después son ordenados por los algoritmos desde
-un tamaño inicial hasta uno final predefinidos junto a un número de ejecuciones para cada n:
+un tamaño inicial hasta uno final predefinidos junto a un número de ejecuciones para cada n. Los valores utilizados
+en las gráficas de ejemplo en `data/` son:
 
 |Algoritmo|N inicial|N final|Incremento de N|Ejecuciones para cada N|Ejecuciones totales|
 |---|---|---|---|---|---|
@@ -73,5 +74,7 @@ Después, para cada conjunto de ejecuciones de un tamaño se generarán una seri
  - Media
  - Mediana
  - Desviación típica
+
+Los datos utilizados para medir el tiempo pueden ser configurados en el fichero `data/config`.
 
 *example* simeplemente muestra por pantalla dos vectores desordenados y el resultado de aplicarles cada uno de los algoritmos.

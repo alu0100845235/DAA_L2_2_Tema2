@@ -10,6 +10,7 @@
 #include <functional>
 #include <iostream>
 #include <fstream>
+#include <cmath>
 #include "DataPoint.hpp"
 
 class Meter {
