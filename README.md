@@ -99,4 +99,5 @@ Estos son:
  - Se han renombrado las imágenes de los gráficos en `data/`.
  - Se han eliminado elementos del repositorio que no eran necesarios en `data/`.
  - Se han actualizado las diapositivas después de consultar al profesor los cálculos de complejidades.
- - Se han actualizado las diapositivas con un gráfico extra que se puede encontrar en `data/Heapsort_vs_SelectionSort.png``.
+ - Se han actualizado las diapositivas con un gráfico extra que se puede encontrar en `data/Heapsort_vs_SelectionSort.png`.
+ - Añadido comparativas a las diapositivas y a `data/` sobre el número de operaciones de swap.
