@@ -70,6 +70,7 @@ en las gráficas de ejemplo en `data/Heapsort.png` y `data/SelectionSort.png` so
 |Heap Sort|2E+5|1E+7|2E+5|3|147|
 
 En el ejemplo `data/Heapsort_vs_SelectionSort.png` se pueden ver información sobre ambos algoritmos para:
+
 |N inicial|N final|Incremento de N|Ejecuciones para cada N|Ejecuciones totales|
 |---|---|---|---|---|
 |1|1000|1|1000|1E+6 (Por algoritmo)|
