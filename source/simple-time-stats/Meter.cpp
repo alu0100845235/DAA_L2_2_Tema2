@@ -5,49 +5,51 @@ Meter::~Meter() {}
 
 void Meter::measure(int start, int end, int tests, int increments, std::function<void(int)> function) {
     std::vector<double> testsTime;
-    std::clock_t beginTime;
-    std::clock_t endTime;
-    int maxSteps = std::abs((end - start) / increments) * tests;
-    int step = 0;
-    double lastMeanTime = 0;
+    std::chrono::high_resolution_clock::time_point beginTime;
+    std::chrono::high_resolution_clock::time_point endTime;
+    std::chrono::nanoseconds value;
 
     points.clear();
     for (int n = start; n < end; n += increments) {
         testsTime.clear();
-        for (int test = 0; test < tests; ++test, ++step) {
-            printInfo(maxSteps, step, n, end, test, tests);
-            beginTime = std::clock();
+        for (int test = 0; test < tests; ++test) {
+            printInfo(n, start, end, test, tests);
+            beginTime = std::chrono::high_resolution_clock::now();
             function(n);
-            endTime = std::clock();
-            testsTime.push_back(double(endTime - beginTime) / CLOCKS_PER_SEC);
+            endTime = std::chrono::high_resolution_clock::now();
+            value = std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - beginTime);
+            testsTime.push_back(value.count() * 1E-9);
         }
         points.push_back(generateDataPoint(testsTime, n));
     }
-    printInfo(maxSteps, step, end, end, tests, tests);
+    printInfo(end, start, end, tests, tests);
 }
 
-void Meter::printInfo(int maxSteps, int step, int n, int end, int test, int tests) const {
-    std::cout <<  "\r" << progressBar(0, maxSteps, step);
+void Meter::printInfo(int n, int start, int end, int test, int tests) const {
+    double step      = (n - start) * tests + test;
+    double max_steps = (end - start) * tests;
+    double progress  = step / max_steps;
+    std::cout <<  "\r" << progressBar(progress);
+    std::cout << " " << ((int)progress * 100) << " %";
     std::cout << ", Test: " << test << "/" << tests;
     std::cout << ", Size: " << n << "/" << end;
-    std::cout << ", Steps left: " << (maxSteps - step);
-    std::cout << ", Last mean time: " << (points.empty() ? 0 : points.back().getMean()) << "s     " << std::flush;
+    std::cout << ", Last mean time: " << (points.empty() ? 0 : points.back().getMean()) << "s";
+    std::cout << "     " << std::flush;
 }
 
-std::string Meter::progressBar(double min, double max, double current, int size) const {
-    double progress = (current - min) / (max - min);
-    int maxChars = progress*size;
+std::string Meter::progressBar(double progress, int size) const {
+    int characters = progress*size;
 
     std::stringstream  bar;
     bar.precision(2);
     bar << "|";
-    for (int i = 0; i < maxChars; ++i) {
+    for (int i = 0; i < characters; ++i) {
         bar << "=";
     }
-    for (int i = maxChars; i < size; ++i) {
+    for (int i = characters; i < size; ++i) {
         bar << " ";
     }
-    bar << "| " << std::fixed << (progress * 100) << " %";
+    bar << "|";
     return bar.str();
 }
 
