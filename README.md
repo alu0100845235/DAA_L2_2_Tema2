@@ -93,8 +93,8 @@ Estos son:
 
  - Se ha añadido a `source/` un fichero de configuración para facilitar los futuros tests.
  - Se ha actualizado el código de la libreria de medición de tiempo para:
-  - Aumentar su precisión.
-  - Mejorar el aspecto visual.
+   - Aumentar su precisión.
+   - Mejorar el aspecto visual.
  - Se ha actualizado este Readme con esta información y se ha añadido más sobre estos cambios.
  - Se han renombrado las imágenes de los gráficos en `data/`.
  - Se han eliminado elementos del repositorio que no eran necesarios en `data/`.
